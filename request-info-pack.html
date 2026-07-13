@@ -205,6 +205,12 @@
   .submit-btn:hover { background: var(--ink); color: var(--yellow); }
   .submit-btn:disabled { opacity: 0.6; cursor: default; }
 
+  .success-back {
+    display: inline-block;
+    text-decoration: none;
+    margin-top: 20px;
+  }
+
   .form-status {
     display: none;
     font-size: 13px;
@@ -302,6 +308,7 @@
   <div class="success-state" id="successView">
     <h2>Thanks, that's sent!</h2>
     <p>We've got your details and will be in touch with the info pack shortly. If it's urgent, email us at <a href="mailto:hello@bikeboxhire.io">hello@bikeboxhire.io</a>.</p>
+    <a class="submit-btn success-back" href="https://bikeboxhire.io/partners">Back to BikeBoxHire.io</a>
   </div>
 </div>
 
@@ -321,7 +328,7 @@
     if (window.history.length > 1) {
       window.history.back();
     } else {
-      window.location.href = 'https://bikeboxhire.io';
+      window.location.href = 'https://bikeboxhire.io/partners';
     }
   });
 
