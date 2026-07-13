@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Request Info Pack | BikeBoxHire.io</title>
+<meta name="description" content="Request the BikeBoxHire.io partner info pack for your cycling shop.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&family=Beth+Ellen&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow: #f1ee9e;
+    --ink: #2b2b23;
+    --ink-soft: #55523f;
+    --line: rgba(43,43,35,0.22);
+    --overlay: #201f1a;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    min-height: 100%;
+  }
+
+  body {
+    background: var(--overlay);
+    font-family: 'Work Sans', sans-serif;
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+
+  .popup {
+    position: relative;
+    width: 100%;
+    max-width: 440px;
+    background: var(--yellow);
+    border-radius: 22px;
+    box-shadow: 0 30px 70px rgba(0,0,0,0.45);
+    padding: 40px 32px 32px;
+  }
+
+  .popup-close {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: var(--ink);
+    font-size: 20px;
+    line-height: 1;
+    border-radius: 50%;
+  }
+
+  .popup-close:hover { background: rgba(43,43,35,0.08); }
+
+  header {
+    text-align: center;
+    margin-bottom: 22px;
+  }
+
+  h1 {
+    font-family: 'Beth Ellen', cursive;
+    font-weight: 400;
+    font-size: 32px;
+    margin: 0 0 8px;
+  }
+
+  header p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+  }
+
+  form { display: flex; flex-direction: column; gap: 14px; }
+
+  label {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--ink-soft);
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  .field input[type="text"],
+  .field input[type="email"],
+  .field input[type="tel"] {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: rgba(255,255,255,0.45);
+    font-family: 'Work Sans', sans-serif;
+    font-size: 15px;
+    color: var(--ink);
+    outline: none;
+  }
+
+  .field input:focus {
+    border-color: var(--ink);
+    background: rgba(255,255,255,0.7);
+  }
+
+  .field input::placeholder { color: rgba(43,43,35,0.45); }
+
+  /* Box-count dial */
+  .dial-field { align-items: center; text-align: center; }
+
+  .dial-wrap {
+    position: relative;
+    width: 132px;
+    height: 132px;
+    margin: 6px auto 4px;
+    touch-action: none;
+  }
+
+  .dial-wrap svg { width: 100%; height: 100%; display: block; }
+
+  .dial-track { fill: none; stroke: rgba(43,43,35,0.18); stroke-width: 10; stroke-linecap: round; }
+  .dial-fill  { fill: none; stroke: var(--ink); stroke-width: 10; stroke-linecap: round; }
+
+  .dial-handle {
+    fill: var(--yellow);
+    stroke: var(--ink);
+    stroke-width: 3;
+    cursor: grab;
+  }
+  .dial-wrap.dragging .dial-handle { cursor: grabbing; }
+
+  .dial-center {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    pointer-events: none;
+  }
+
+  #boxCount {
+    pointer-events: auto;
+    width: 56px;
+    text-align: center;
+    border: none;
+    background: none;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    color: var(--ink);
+    outline: none;
+  }
+
+  .dial-sub { font-size: 11px; color: var(--ink-soft); margin-top: -2px; }
+
+  .dial-steppers {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 2px;
+  }
+
+  .stepper-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid var(--line);
+    background: rgba(255,255,255,0.45);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--ink);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+  }
+
+  .stepper-btn:hover { background: rgba(255,255,255,0.7); }
+
+  .submit-btn {
+    margin-top: 8px;
+    padding: 14px;
+    border-radius: 999px;
+    border: 2px solid var(--ink);
+    background: none;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--ink);
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+
+  .submit-btn:hover { background: var(--ink); color: var(--yellow); }
+  .submit-btn:disabled { opacity: 0.6; cursor: default; }
+
+  .form-status {
+    display: none;
+    font-size: 13px;
+    text-align: center;
+    margin-top: 4px;
+  }
+
+  .form-status.visible { display: block; }
+  .form-status.error { color: #8a2e2e; }
+
+  .success-state {
+    display: none;
+    text-align: center;
+    padding: 24px 4px 8px;
+  }
+
+  .success-state.visible { display: block; }
+
+  .success-state h2 {
+    font-family: 'Beth Ellen', cursive;
+    font-weight: 400;
+    font-size: 28px;
+    margin: 0 0 10px;
+  }
+
+  .success-state p { font-size: 14px; color: var(--ink-soft); line-height: 1.5; margin: 0; }
+
+  @media (max-width: 480px) {
+    .popup { padding: 34px 22px 26px; }
+    h1 { font-size: 27px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="popup" id="popup">
+  <button class="popup-close" id="popupClose" aria-label="Close">&times;</button>
+
+  <div id="formView">
+    <header>
+      <h1>Request the info pack</h1>
+      <p>Tell us about your shop and we'll send over pricing, terms, and how the partnership works.</p>
+    </header>
+
+    <form id="infoForm" novalidate>
+      <div class="field">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your name" required>
+      </div>
+
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="you@yourshop.com" required>
+      </div>
+
+      <div class="field">
+        <label for="phone">Phone number</label>
+        <input type="tel" id="phone" name="phone" placeholder="07123 456789">
+      </div>
+
+      <div class="field">
+        <label for="company">Company</label>
+        <input type="text" id="company" name="company" placeholder="Shop / business name" required>
+      </div>
+
+      <div class="field">
+        <label for="location">Location of shop</label>
+        <input type="text" id="location" name="location" placeholder="e.g. Edinburgh, Leith Walk">
+      </div>
+
+      <div class="field dial-field">
+        <label>Number of boxes you could do with</label>
+        <div class="dial-wrap" id="dialWrap">
+          <svg viewBox="0 0 132 132">
+            <path class="dial-track" id="dialTrack" />
+            <path class="dial-fill" id="dialFill" />
+            <circle class="dial-handle" id="dialHandle" r="9" />
+          </svg>
+          <div class="dial-center">
+            <input type="number" id="boxCount" name="boxes" min="1" max="30" step="1" value="5" inputmode="numeric">
+            <span class="dial-sub">boxes</span>
+          </div>
+        </div>
+        <div class="dial-steppers">
+          <button type="button" class="stepper-btn" id="boxMinus" aria-label="Decrease">&minus;</button>
+          <button type="button" class="stepper-btn" id="boxPlus" aria-label="Increase">&plus;</button>
+        </div>
+      </div>
+
+      <button type="submit" class="submit-btn" id="submitBtn">Send request</button>
+      <div class="form-status" id="formStatus"></div>
+    </form>
+  </div>
+
+  <div class="success-state" id="successView">
+    <h2>Thanks, that's sent!</h2>
+    <p>We've got your details and will be in touch with the info pack shortly. If it's urgent, email us at <a href="mailto:hello@bikeboxhire.io">hello@bikeboxhire.io</a>.</p>
+  </div>
+</div>
+
+<script>
+  // SETUP: create a free form at https://formspree.io, then replace the ID below
+  // with your own (Formspree emails every submission straight to your inbox).
+  // To also add each submission as a row in Notion, connect this Formspree form
+  // to the "Partner Information" Notion database via a Zapier/Make automation
+  // ("New Submission" -> "Create Database Item"), mapping:
+  //   name -> Requester Name, email -> Email, phone -> Phone,
+  //   company -> Business Name, location -> Location/Address,
+  //   boxes -> Number of Boxes
+  var FORM_ENDPOINT = 'https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID';
+
+  // ---- Popup close behaviour ----
+  document.getElementById('popupClose').addEventListener('click', function () {
+    if (window.history.length > 1) {
+      window.history.back();
+    } else {
+      window.location.href = 'https://bikeboxhire.io';
+    }
+  });
+
+  // ---- Box-count dial ----
+  (function () {
+    var MIN = 1, MAX = 30;
+    var START_ANGLE = -135, END_ANGLE = 135; // 0 = top (12 o'clock), clockwise-positive
+    var cx = 66, cy = 66, r = 47;
+
+    var wrap = document.getElementById('dialWrap');
+    var track = document.getElementById('dialTrack');
+    var fill = document.getElementById('dialFill');
+    var handle = document.getElementById('dialHandle');
+    var input = document.getElementById('boxCount');
+
+    function polarToCartesian(radius, angleDeg) {
+      var rad = (angleDeg - 90) * Math.PI / 180;
+      return { x: cx + radius * Math.cos(rad), y: cy + radius * Math.sin(rad) };
+    }
+
+    function describeArc(radius, startAngle, endAngle) {
+      var start = polarToCartesian(radius, endAngle);
+      var end = polarToCartesian(radius, startAngle);
+      var largeArcFlag = (endAngle - startAngle) <= 180 ? '0' : '1';
+      return ['M', start.x, start.y, 'A', radius, radius, 0, largeArcFlag, 0, end.x, end.y].join(' ');
+    }
+
+    function angleForValue(value) {
+      var pct = (value - MIN) / (MAX - MIN);
+      return START_ANGLE + pct * (END_ANGLE - START_ANGLE);
+    }
+
+    function render(value) {
+      var angle = angleForValue(value);
+      fill.setAttribute('d', describeArc(r, START_ANGLE, angle));
+      var pos = polarToCartesian(r, angle);
+      handle.setAttribute('cx', pos.x);
+      handle.setAttribute('cy', pos.y);
+    }
+
+    function setValue(value, updateInput) {
+      value = Math.max(MIN, Math.min(MAX, Math.round(value)));
+      if (updateInput !== false) input.value = value;
+      render(value);
+    }
+
+    track.setAttribute('d', describeArc(r, START_ANGLE, END_ANGLE));
+    setValue(parseInt(input.value, 10) || 5);
+
+    input.addEventListener('input', function () {
+      if (input.value === '') return;
+      setValue(parseInt(input.value, 10) || MIN, false);
+    });
+    input.addEventListener('blur', function () { setValue(parseInt(input.value, 10) || MIN); });
+
+    document.getElementById('boxMinus').addEventListener('click', function () {
+      setValue((parseInt(input.value, 10) || MIN) - 1);
+    });
+    document.getElementById('boxPlus').addEventListener('click', function () {
+      setValue((parseInt(input.value, 10) || MIN) + 1);
+    });
+
+    function angleFromPointer(evt) {
+      var rect = wrap.getBoundingClientRect();
+      var px = evt.clientX - (rect.left + rect.width / 2);
+      var py = evt.clientY - (rect.top + rect.height / 2);
+      var theta = Math.atan2(py, px) * 180 / Math.PI + 90; // 0 = top, clockwise
+      if (theta > 180) theta -= 360;
+      if (theta < -180) theta += 360;
+      // Keep the dial's bottom gap: snap into range, treating the far bottom
+      // as belonging to whichever end it's closer to.
+      if (theta > END_ANGLE && theta < 180) theta = END_ANGLE;
+      if (theta < START_ANGLE && theta > -180) theta = START_ANGLE;
+      return theta;
+    }
+
+    var dragging = false;
+
+    function onPointerMove(evt) {
+      if (!dragging) return;
+      var theta = angleFromPointer(evt);
+      var pct = (theta - START_ANGLE) / (END_ANGLE - START_ANGLE);
+      setValue(MIN + pct * (MAX - MIN));
+    }
+
+    wrap.addEventListener('pointerdown', function (evt) {
+      dragging = true;
+      wrap.classList.add('dragging');
+      wrap.setPointerCapture(evt.pointerId);
+      onPointerMove(evt);
+    });
+    wrap.addEventListener('pointermove', onPointerMove);
+    wrap.addEventListener('pointerup', function () { dragging = false; wrap.classList.remove('dragging'); });
+    wrap.addEventListener('pointercancel', function () { dragging = false; wrap.classList.remove('dragging'); });
+
+    wrap.addEventListener('keydown', function (evt) {
+      var current = parseInt(input.value, 10) || MIN;
+      if (evt.key === 'ArrowUp' || evt.key === 'ArrowRight') { setValue(current + 1); evt.preventDefault(); }
+      if (evt.key === 'ArrowDown' || evt.key === 'ArrowLeft') { setValue(current - 1); evt.preventDefault(); }
+    });
+    wrap.setAttribute('tabindex', '0');
+    wrap.setAttribute('role', 'slider');
+    wrap.setAttribute('aria-valuemin', MIN);
+    wrap.setAttribute('aria-valuemax', MAX);
+    wrap.setAttribute('aria-label', 'Number of boxes');
+  })();
+
+  // ---- Form submission ----
+  var form = document.getElementById('infoForm');
+  var statusEl = document.getElementById('formStatus');
+  var submitBtn = document.getElementById('submitBtn');
+
+  form.addEventListener('submit', function (evt) {
+    evt.preventDefault();
+    statusEl.className = 'form-status';
+    statusEl.textContent = '';
+
+    if (FORM_ENDPOINT.indexOf('REPLACE_WITH_YOUR_FORM_ID') !== -1) {
+      statusEl.textContent = 'Form isn\'t connected yet — set FORM_ENDPOINT in the page source.';
+      statusEl.className = 'form-status visible error';
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    var data = new FormData(form);
+
+    fetch(FORM_ENDPOINT, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    }).then(function (response) {
+      if (response.ok) {
+        document.getElementById('formView').style.display = 'none';
+        document.getElementById('successView').classList.add('visible');
+      } else {
+        throw new Error('Request failed');
+      }
+    }).catch(function () {
+      statusEl.textContent = 'Something went wrong — please email hello@bikeboxhire.io instead.';
+      statusEl.className = 'form-status visible error';
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send request';
+    });
+  });
+</script>
+</body>
+</html>
