@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Frequently Asked Questions | BikeBoxHire.io</title>
+<meta name="description" content="Answers to the most common questions about hiring a BikeBoxHire.io bike box — pricing, pickup, deposits, and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow: #f0e79a;
+    --yellow-deep: #e9de84;
+    --ink: #2b2b23;
+    --ink-soft: #55523f;
+    --line: rgba(43,43,35,0.18);
+    --accent: #2b2b23;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--yellow);
+    font-family: 'Work Sans', sans-serif;
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 56px 24px 96px;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  h1 {
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    font-size: 44px;
+    margin: 0 0 6px;
+    letter-spacing: 0.5px;
+  }
+
+  .bike-icon {
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+
+  .search-wrap {
+    margin: 28px auto 0;
+    max-width: 480px;
+  }
+
+  #faqSearch {
+    width: 100%;
+    padding: 12px 44px 12px 16px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: rgba(255,255,255,0.35);
+    font-family: 'Work Sans', sans-serif;
+    font-size: 15px;
+    color: var(--ink);
+    outline: none;
+  }
+
+  #faqSearch::placeholder { color: var(--ink-soft); }
+  #faqSearch:focus { border-color: var(--ink); background: rgba(255,255,255,0.55); }
+
+  .faq-list {
+    border-top: 1px solid var(--line);
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .faq-item.hidden { display: none; }
+
+  .faq-question {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 18px 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--ink);
+    cursor: pointer;
+  }
+
+  .faq-question:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 2px;
+  }
+
+  .faq-question .chevron {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    transition: transform 0.2s ease;
+  }
+
+  .faq-item[data-open="true"] .chevron {
+    transform: rotate(180deg);
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+  }
+
+  .faq-answer-inner {
+    padding: 0 4px 18px;
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+  }
+
+  .faq-answer-inner a { color: var(--ink); }
+
+  .no-results {
+    text-align: center;
+    padding: 40px 0;
+    color: var(--ink-soft);
+    font-size: 15px;
+    display: none;
+  }
+
+  .no-results.visible { display: block; }
+
+  footer {
+    text-align: center;
+    margin-top: 48px;
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+
+  footer a { color: var(--ink-soft); }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 36px; }
+    .wrap { padding: 40px 18px 72px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="search-wrap">
+      <input type="text" id="faqSearch" placeholder="Search…" aria-label="Search FAQs">
+    </div>
+  </header>
+
+  <div class="faq-list" id="faqList">
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        <span>What's included with my Bike Box?</span>
+        <svg class="chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">Every hire comes with your Bike Box, a built-in GPS tracker, a full installation manual and video, a pre-race packing checklist, cable ties, an anti-crush joint, and interior padding. Everything you need to pack and travel with confidence.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        <span>Will my bike fit inside the box?</span>
+        <svg class="chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">We offer two box types: our Road/Gravel box fits standard road and gravel bikes, and our TT/Aero box fits TT/aero, MTB, and electric bikes. All bikes need to be broken down per our packing video (wheels off, bars turned, seat post removed). If you're on an unusually large frame or an oversized e-bike, message us your bike's dimensions before booking and we'll confirm fit.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        <span>How long can I hire a box for?</span>
+        <svg class="chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">Choose a 7-day hire (£99.95) or a 10-day hire (£135) — whichever suits your race or trip. Need longer? Message us before your return date to arrange an extension at £15/day. Boxes returned late with no extension agreed in advance are charged £50/day, so it's always worth letting us know if your plans shift.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        <span>When am I charged?</span>
+        <svg class="chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">The full hire fee is taken at the point of booking, nothing extra to pay on collection. Your £200 damage deposit is held separately as a security authorisation, not a charge, so it never shows up as money out of your account unless it's actually used.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        <span>Where can I collect from?</span>
+        <svg class="chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">Pickup is available from partner bike shops in Edinburgh and Glasgow, or from trusted locker locations in Edinburgh — whichever's easiest for you. Every booking confirms your exact location, address, and a map link. At present we only offer collection from locations in Edinburgh and Glasgow, but we're working on expanding — let us know if there's another location you think we should prioritise.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        <span>How does collection work?</span>
+        <svg class="chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">You'll get a confirmation email with a unique confirmation number. At a partner shop, just show or read out your number at the counter. At a locker, enter it to unlock and collect. No paperwork, no waiting around.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        <span>Do you deliver/collect outside Edinburgh/Glasgow?</span>
+        <svg class="chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">Right now, collection and return are only available through our partner shop network in Edinburgh and Glasgow, or trusted lockers in Edinburgh. We don't currently offer delivery or collection outside these areas, but it's something we're actively looking at as we grow — get in touch if you're outside our current network and we'll let you know if there's a workaround.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        <span>Can I access the GPS tracker during my trip?</span>
+        <svg class="chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">Yes. Every box has a built-in GPS tracker, and we send you a live tracking link by WhatsApp shortly after collection, so you always know exactly where your box is.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        <span>How does drop-off work?</span>
+        <svg class="chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">Return your box to the same location that you picked it up, a partner shop or locker, within your booking's end date. We inspect every return against a fixed checklist, so refunds are fast and fair.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        <span>What happens with my deposit?</span>
+        <svg class="chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">We hold a fully refundable £200 deposit on your card at booking — never charged unless there's damage beyond normal wear and tear. Clean return means your deposit is released within 5–7 business days, no chasing required.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        <span>What if my box is damaged in transit by an airline?</span>
+        <svg class="chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">Our boxes are built to withstand the rigours of air travel, but airlines can occasionally cause damage during handling. If this happens, report it to the airline before you leave the airport and get a Property Irregularity Report (PIR). Send us the PIR within 24 hours of your return and your deposit is released in full — we'll pursue the claim with the airline directly. We recommend taking out travel insurance that covers sports equipment as extra peace of mind.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        <span>What's your cancellation policy?</span>
+        <svg class="chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">Plans change — here's how refunds work if you need to cancel:<br><br>
+        &bull; More than 7 days before collection: full refund<br>
+        &bull; 3–7 days before collection: 50% refund<br>
+        &bull; Less than 48 hours before collection: no refund<br><br>
+        Your damage deposit is always released in full on cancellation, regardless of timing.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        <span>How do I contact you if something goes wrong?</span>
+        <svg class="chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">Email us at <a href="mailto:hello@bikeboxhire.io">hello@bikeboxhire.io</a> and we'll get back to you as quickly as we can. If it's urgent — a pickup issue or a live GPS query on the day — WhatsApp is the fastest way to reach us.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        <span>Can I extend my hire before the return date?</span>
+        <svg class="chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">If your plans shift, message us before your return date and we'll do our best to extend your booking — extensions are charged at £15/day, though they depend on whether the box is already reserved for the next hire, so we can't guarantee availability. If your box isn't returned on time and no extension was agreed in advance, a late return fee of £50/day applies instead.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="no-results" id="noResults">No matching questions — try a different search, or email <a href="mailto:hello@bikeboxhire.io">hello@bikeboxhire.io</a>.</div>
+
+  <footer>
+    <a href="https://bikeboxhire.io">&larr; Back to BikeBoxHire.io</a>
+  </footer>
+</div>
+
+<script>
+  // Accordion behaviour
+  document.querySelectorAll('.faq-item').forEach(function (item) {
+    var btn = item.querySelector('.faq-question');
+    var answer = item.querySelector('.faq-answer');
+
+    btn.addEventListener('click', function () {
+      var isOpen = item.getAttribute('data-open') === 'true';
+
+      // close all others
+      document.querySelectorAll('.faq-item').forEach(function (other) {
+        if (other !== item) {
+          other.setAttribute('data-open', 'false');
+          other.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+          other.querySelector('.faq-answer').style.maxHeight = null;
+        }
+      });
+
+      if (isOpen) {
+        item.setAttribute('data-open', 'false');
+        btn.setAttribute('aria-expanded', 'false');
+        answer.style.maxHeight = null;
+      } else {
+        item.setAttribute('data-open', 'true');
+        btn.setAttribute('aria-expanded', 'true');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
+
+  // Live search
+  var searchInput = document.getElementById('faqSearch');
+  var items = Array.prototype.slice.call(document.querySelectorAll('.faq-item'));
+  var noResults = document.getElementById('noResults');
+
+  searchInput.addEventListener('input', function () {
+    var term = this.value.trim().toLowerCase();
+    var visibleCount = 0;
+
+    items.forEach(function (item) {
+      var text = item.textContent.toLowerCase();
+      var matches = text.indexOf(term) !== -1;
+      item.classList.toggle('hidden', !matches);
+      if (matches) visibleCount++;
+    });
+
+    noResults.classList.toggle('visible', visibleCount === 0);
+  });
+</script>
+</body>
+</html>
