@@ -1,0 +1,31 @@
+# BikeBoxHire.io
+
+> BikeBoxHire.io is a hard-shell bike box rental service for triathletes,
+> road cyclists, and adventure riders across Scotland's central belt
+> (Edinburgh and Glasgow). Customers hire a Road/Gravel or TT/Aero box for
+> a fixed period, collect it from a partner bike shop or storage locker,
+> pack their bike using the included guides and GPS tracker, and return it
+> after their trip or race.
+
+## Key facts
+
+- Two box types: Road/Gravel (fits road and gravel bikes) and TT/Aero
+  (fits TT/aero, MTB, and electric bikes).
+- Hard-shell construction with a built-in GPS tracker, packing foam, and
+  disc brake protection included with every hire.
+- Pricing: 7-day hire £99.95, 10-day hire £135. Refundable £200 damage
+  deposit held on card, released within 5–7 business days on clean return.
+- Collection and return via partner bike shops in Edinburgh and Glasgow,
+  or trusted locker locations in Edinburgh. Pickup available Tuesdays and
+  Thursdays.
+- Contact: hello@bikeboxhire.io
+
+## Pages
+
+- [Frequently Asked Questions](https://faq.bikeboxhire.io/): full Q&A
+  covering pricing, fit, collection, deposits, GPS tracking, and
+  cancellations.
+- [Cycling Shop Partnerships](https://faq.bikeboxhire.io/request-info-pack.html):
+  information for bike shops interested in hosting boxes and earning
+  commission.
+- [Main site](https://bikeboxhire.io/): booking, pricing, and how it works.
