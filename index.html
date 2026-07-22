@@ -545,10 +545,10 @@
      Drop this block just before </body> on both:
        - book.bikeboxhire.io (booking page)
        - faq.bikeboxhire.io (FAQ page)
-     Images referenced below (bbh-footer-tarmac.png, bbh-star-left.png,
-     bbh-star-right.png) should live at the SAME relative path on both
-     pages — e.g. an /assets/ folder at the repo root — so this snippet
-     works unmodified on either page.
+     Images are loaded from https://faq.bikeboxhire.io/assets/ — the single
+     canonical copy already uploaded to the BBH (FAQ) repo. The BBH-booking
+     repo does NOT need its own copies of these images; both pages just
+     point at the same hosted files.
      ============================================================ -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -657,13 +657,13 @@
 <footer class="bbh-footer">
 
   <div class="bbh-footer__band">
-    <img src="/assets/bbh-footer-tarmac.png" alt="BikeBoxHire.io">
+    <img src="https://faq.bikeboxhire.io/assets/bbh-footer-tarmac.png" alt="BikeBoxHire.io">
   </div>
 
   <div class="bbh-footer__links">
 
     <div class="bbh-footer__star">
-      <img src="/assets/bbh-star-left.png" alt="">
+      <img src="https://faq.bikeboxhire.io/assets/bbh-star-left.png" alt="">
     </div>
 
     <div class="bbh-footer__columns">
@@ -696,7 +696,7 @@
     </div>
 
     <div class="bbh-footer__star">
-      <img src="/assets/bbh-star-right.png" alt="">
+      <img src="https://faq.bikeboxhire.io/assets/bbh-star-right.png" alt="">
     </div>
 
   </div>
